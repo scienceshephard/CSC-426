@@ -1,0 +1,217 @@
+:root {
+  --navy: #173a5e;
+  --navy-soft: #21507f;
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --border: #d8dee6;
+  --text: #1f2a37;
+  --muted: #65717e;
+  --accent: #1f5fa6;
+  --accent-hover: #184e88;
+  --danger: #c0392b;
+  --success: #2e7d4f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.split {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---- left branding panel ---- */
+.brand {
+  flex: 0 0 42%;
+  background: var(--navy);
+  color: #eaf1f8;
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand__logo,
+.form-card__logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.brand__logo span { color: #7fb3e8; font-weight: 400; margin-left: 2px; }
+.form-card__logo { color: var(--navy); margin-bottom: 26px; }
+.form-card__logo span { color: var(--accent); font-weight: 400; margin-left: 2px; }
+
+.brand__inner { margin-top: 18vh; max-width: 360px; }
+
+.brand__title {
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin: 22px 0 14px;
+}
+
+.brand__text {
+  color: #c2d4e6;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.brand__list {
+  list-style: none;
+  margin-top: 28px;
+}
+.brand__list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+  color: #d7e3f0;
+  font-size: 0.95rem;
+}
+.brand__list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: #7fb3e8;
+  font-weight: 700;
+}
+
+.brand__foot { color: #8ba6c2; font-size: 0.82rem; }
+
+/* ---- right form panel ---- */
+.panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 380px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.lead {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.alert {
+  margin: 20px 0 4px;
+  padding: 11px 13px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+.alert--error { color: #7a241b; background: #fbecea; border-color: #f0c5c0; }
+.alert--success { color: #1d5436; background: #e8f3ec; border-color: #bcdcc7; }
+
+.field { margin-top: 18px; }
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 11px 13px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.98rem;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input::placeholder { color: #9aa4af; }
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(31, 95, 166, 0.12);
+}
+input.invalid {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.1);
+}
+
+.password-wrap { position: relative; }
+.toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+.toggle:hover { text-decoration: underline; }
+
+.error {
+  display: block;
+  min-height: 15px;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: var(--danger);
+}
+
+.btn {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  margin-top: 24px;
+}
+.btn--primary:hover { background: var(--accent-hover); }
+.btn--primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn--ghost {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--text);
+  margin-top: 10px;
+}
+.btn--ghost:hover { background: #f3f5f8; border-color: #c2cad4; }
+
+.hint {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.hint strong { color: var(--text); }
+
+/* ---- responsive: stack on tablets and phones ---- */
+@media (max-width: 860px) {
+  .brand { display: none; }
+  .panel { min-height: 100vh; }
+}
+@media (max-width: 420px) {
+  h1 { font-size: 1.45rem; }
+  .form-card__logo { font-size: 1.2rem; }
+}
